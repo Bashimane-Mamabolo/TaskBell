@@ -16,7 +16,7 @@ namespace TaskBell.Data
             modelBuilder.Entity<ToDoItem>(entity =>
             {
                 entity.HasKey(t => t.Id);
-                entity.Property(t => t.Title).IsRequired().HasMaxLength(200);
+                entity.Property(t => t.Title).IsRequired().HasMaxLength(50);
             });
 
             // Additional configurations can be added here

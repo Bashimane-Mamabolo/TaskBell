@@ -42,7 +42,7 @@ namespace TaskBell.Repositories
             return items;
         }
 
-        public async Task<ToDoItem> GetByIdAsync(int id)
+        public async Task<ToDoItem?> GetByIdAsync(int id)
         {
             var item = await _context.ToDoItems.FindAsync(id);
             if (item == null)
