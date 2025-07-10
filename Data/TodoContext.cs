@@ -3,9 +3,9 @@ using TaskBell.Models;
 
 namespace TaskBell.Data
 {
-    public class TodoContext : DbContext
+    public class ToDoContext : DbContext
     {
-        public TodoContext(DbContextOptions<TodoContext> options) : base(options) { }
+        public ToDoContext(DbContextOptions<ToDoContext> options) : base(options) { }
 
         public DbSet<ToDoItem> ToDoItems { get; set; } = null!;
         protected override void OnModelCreating(ModelBuilder modelBuilder)
