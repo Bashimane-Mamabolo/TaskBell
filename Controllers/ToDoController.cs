@@ -11,6 +11,15 @@ namespace TaskBell.Controllers
         private readonly ILogger<ToDoController> _logger;
         private readonly IToDoItemRepository _repository;
 
+        //static IList<ToDoItem> _items = new List<ToDoItem>
+        //{ 
+        //    new ToDoItem { Id = 1, Title = "Buy groceries", IsCompleted = false },
+        //    new ToDoItem { Id = 2, Title = "Complete project task", IsCompleted = true },
+        //    new ToDoItem { Id = 3, Title = "Call plumber", IsCompleted = false },
+        //    new ToDoItem { Id = 4, Title = "Book dentist appointment", IsCompleted = true },
+        //    new ToDoItem { Id = 5, Title = "Study for test", IsCompleted = false }
+        //};
+
         public ToDoController(IToDoItemRepository repository, ILogger<ToDoController> logger)
         {
             _logger = logger;
@@ -18,10 +27,11 @@ namespace TaskBell.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index() 
+        public async Task<IActionResult> Index() 
         { 
             _logger.LogInformation("Navigating to ToDoItem index page.");
-            return View();
+            var todoList = await _repository.GetAllAsync();
+            return View(todoList);
         }
 
         [HttpGet("create")]
