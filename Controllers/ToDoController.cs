@@ -4,7 +4,7 @@ using TaskBell.Repositories;
 
 namespace TaskBell.Controllers
 {
-    [Route("Todo")]
+    [Route("ToDo")]
     public class ToDoController : Controller
     {
 
@@ -83,8 +83,8 @@ namespace TaskBell.Controllers
             }
         }
 
-        [HttpPost("edit")]
-        public async Task<IActionResult> Edit(ToDoItem item)
+        [HttpPost("edit/{id}")]
+        public async Task<IActionResult> Edit(int id, ToDoItem item)
         {
             if (!ModelState.IsValid)
             {

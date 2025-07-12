@@ -35,20 +35,20 @@ namespace TaskBell.Repositories
         public async Task<IEnumerable<ToDoItem>> GetAllAsync()
         {
             var items = await _context.ToDoItems.ToListAsync();
-            if (items == null || !items.Any())
-            {
-                throw new KeyNotFoundException("No ToDoItems found.");
-            }
+            //if (items == null || !items.Any())
+            //{
+            //    throw new KeyNotFoundException("No ToDoItems found.");
+            //}
             return items;
         }
 
         public async Task<ToDoItem?> GetByIdAsync(int id)
         {
             var item = await _context.ToDoItems.FindAsync(id);
-            if (item == null)
-            {
-                throw new KeyNotFoundException($"ToDoItem with ID {id} not found.");
-            }
+            //if (item == null)
+            //{
+            //    throw new KeyNotFoundException($"ToDoItem with ID {id} not found.");
+            //}
             return item;
 
         }
